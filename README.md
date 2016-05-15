@@ -1,25 +1,33 @@
-docker-mongorocker fork
+RockMongo
 =======================
 
-Just the original docker with some features for customization.
+### Usage Instructions
 
-Instructions:
- - Link to a MongoDB container and name the link "mongo" in this side.
- - Expose mongorock port 80 (ie, in port 8080)
-
-```bash
-    docker run ... -l mymongocontainername:mongo -p 8080:80
+``` bash
+docker run -d -p 80:8080 -e "MONGO_SERVER=localhost" weshigbee/rockmongo  
 ```
+By default there's no auth to RockMongo, see below to change this.
 
-Notes:
- - rockmongo user/pass: admin (no password) !!!!!!!!!!!!! BE CAREFUL !!!!!!!!!!!!!!
- - MongoDB user/pass: no pass (so nothing configured in config.php)
+### Configuration
 
+Name                              | Default         | Description
+----------------------------------|-----------------|------------
+`MONGO_SERVER`                    |`localhost`      | MongoDB server hostname or IP address. This will show up in rockmongo drop down selector when you login.
+`MONGO_PORT`                      |`27017`          |
+`MONGO_DATABASE`                  |``               | Default database to connect to
+----------------------------------|-----------------|------------
+`MONGO_AUTH`                      |`false`          | If your MongoDB server requires auth, set this to `true`.
+`MONGO_USERNAME`                  |``               | Username if you set MONGO_AUTH=true
+`MONGO_PASSWORD`                  |``               | Password if you set MONGO_AUTH=true
+----------------------------------|-----------------|------------
+`ROCKMONGO_AUTH`                  |`false`          | If you want to enable login to RockMongo set this to `true`.
+`ROCKMONGO_USER`                  |`admin`          | Username if you set ROCKMONGO_AUTH=true
+`ROCKMONGO_PASSWORD`              |`admin`          | Password if you set ROCKMONGO_AUTH=true
+----------------------------------|-----------------|------------
+`NGINX_HOSTNAME`                  |`rockmongo.docker.local` | A hostname you can bind to your docker host's IP to access rockmongo's nginx site by name.
 
+### Notes
 
-You can also define a hostname "rockmongo.docker.local" to your docker IP (localhost, boot2docker IP, panamax IP...) to access rockmongo's nginx.
-
- - You can also use "docker run" env params to change:
-  - Name of linked MongoDB
-  - MongoDB hostname, MongoDB port (by default: linked MongoDB hostname autoset by docker & 27017)
-  - Different hostname for nginx site
+- RockMongo project site: [http://rockmongo.com/](http://rockmongo.com/).
+- This image is not an official part of the RockMongo project.
+- This image modifies the RockMongo config file when you run it, injecting the above environment variable configuration into the static config.php file for RockMongo to use.

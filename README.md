@@ -25,6 +25,8 @@ Name                              | Default         | Description
 `ROCKMONGO_PASSWORD`              |`admin`          | Password if you set ROCKMONGO_AUTH=true
  | | 
 `NGINX_HOSTNAME`                  |`rockmongo.docker.local` | A hostname you can bind to your docker host's IP to access rockmongo's nginx site by name.
+ | | 
+`ROCKMONGO_BASE_URI`                  |				| Base URI for links, running behind reverse proxy. eg: `/rockmongo`
 
 ### Notes
 

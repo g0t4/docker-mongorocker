@@ -4,7 +4,7 @@ RockMongo
 ### Usage Instructions
 
 ``` bash
-docker run -d -p 80:8080 -e "MONGO_SERVER=localhost" weshigbee/rockmongo  
+docker run -d -p 80:8080 -e "MONGO_SERVER=localhost" ykocaman/rockmongo  
 ```
 By default there's no auth to RockMongo, see below to change this.
 

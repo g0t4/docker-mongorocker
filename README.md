@@ -4,7 +4,7 @@ RockMongo
 ### Usage Instructions
 
 ``` bash
-docker run -d -p 80:8080 -e "MONGO_SERVER=localhost" weshigbee/rockmongo  
+docker run -d -p 80:8080 -e "MONGO_SERVER=localhost" ykocaman/rockmongo  
 ```
 By default there's no auth to RockMongo, see below to change this.
 
@@ -25,6 +25,8 @@ Name                              | Default         | Description
 `ROCKMONGO_PASSWORD`              |`admin`          | Password if you set ROCKMONGO_AUTH=true
  | | 
 `NGINX_HOSTNAME`                  |`rockmongo.docker.local` | A hostname you can bind to your docker host's IP to access rockmongo's nginx site by name.
+ | | 
+`ROCKMONGO_BASE_URI`                  |				| Base URI for links, running behind reverse proxy. eg: `/rockmongo`
 
 ### Notes
 

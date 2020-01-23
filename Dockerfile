@@ -6,7 +6,7 @@ ENV NGINX_HOSTNAME=rockmongo.docker.local MONGO_SERVER=localhost MONGO_PORT=2701
 
 RUN apt-get update && \
 	apt-get install -y --no-install-recommends build-essential wget nginx php5-fpm php-pear php5-dev && \
-	printf "\n" | pecl install mongo && \
+	printf "\n" | pecl install mongo-1.3.7 && \
 	apt-get remove -yq --purge php5-dev build-essential php-pear && \
 	apt-get autoremove -yq --purge && \
 	rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* && \
